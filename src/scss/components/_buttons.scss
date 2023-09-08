@@ -1,0 +1,125 @@
+.btn {
+  @include flex-all-center;
+  margin: 0;
+  padding: 12.5px 26.5px;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  border: none;
+  color: $color-white;
+  font-weight: 600;
+  background-color: $color-firm;
+  transition: background-color .15s ease-in-out;
+
+  &:focus {
+    background-color: $color-firm--hover;
+  }
+
+  @include hover {
+    background-color: $color-firm--hover;
+  }
+
+  &:active {
+    background-color: $color-firm--click;
+  }
+
+  &:disabled {
+    background-color: $color-grey;
+  }
+}
+
+.btn-secondary {
+  border: 1px solid $color-firm;
+  color: $color-firm;
+  font-weight: 600;
+  background-color: $color-white;
+  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+
+  &:focus {
+    color: $color-white;
+    background-color: $color-firm--hover;
+  }
+
+  @include hover {
+    color: $color-white;
+    background-color: $color-firm--hover;
+  }
+
+  &:active {
+    color: $color-white;
+    background-color: $color-firm--click;
+  }
+
+  &:disabled {
+    border-color: $color-grey;
+    color: $color-grey;
+  }
+}
+
+.btn-primary--icon {
+  padding: 0;
+  transition: color .15s ease-in-out;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: $color-firm;
+  }
+
+  &:focus {
+    color: $color-firm;
+  }
+
+  @include hover {
+    color: $color-firm;
+  }
+
+  &:active {
+    color: $color-firm;
+  }
+}
+
+.btn-secondary--icon {
+  padding: 0;
+  transition: color .15s ease-in-out;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: $color-red;
+  }
+
+  &:focus {
+    color: $color-red;
+  }
+
+  @include hover {
+    color: $color-red;
+  }
+
+  &:active {
+    color: $color-red;
+  }
+}
+
+.add-new-client {
+  margin: 0 auto;
+  padding: 12px 26px;
+  border: 1px solid $color-firm;
+  font-weight: 600;
+  line-height: 19px;
+  text-align: center;
+  color: $color-firm;
+
+  svg {
+    margin-right: 10px;
+  }
+}

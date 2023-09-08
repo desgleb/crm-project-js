@@ -1,0 +1,19 @@
+// indents
+$content-width: 1186px;
+$container-offset: 15px;
+$container-width: calc($content-width + $container-offset * 2);
+
+// colors
+$color-white: #fff;
+$color-firm: #9873ff;
+$color-firm--hover: #b89eff;
+$color-firm--click: #8052ff;
+$color-grey: #c8c5d1;
+$color-grey--bg: rgba(200, 197, 209, 0.2);
+$color-grey--text: #b0b0b0;
+$color-grey--dropdown: #f4f3f6;
+$color-grey--dropdown-selected: #e7e5eb;
+$color-black: #333;
+$color-red: #f06a4d;
+$color-bg: #e5e5e5;
+$color-bg--light: #c8c5d1;

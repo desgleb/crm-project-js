@@ -1,0 +1,32 @@
+.load-spinner {
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  &__wrapper {
+    @include flex-all-center;
+    min-width: 100%;
+    min-height: 300px;
+    background-color: $color-white;
+
+    svg {
+      width: 72px;
+      height: 72px;
+      animation: 1s linear infinite cycling;
+    }
+  }
+
+  &.is-loading {
+    display: table-footer-group;
+  }
+}
+
+@keyframes cycling {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

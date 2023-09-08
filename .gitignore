@@ -1,0 +1,4 @@
+crm-backend/
+node_modules/
+dist/
+.idea/

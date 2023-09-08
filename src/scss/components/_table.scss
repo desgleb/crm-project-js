@@ -1,0 +1,200 @@
+.table {
+  margin-bottom: 40px;
+  width: 100%;
+
+  &__head {
+    height: fit-content;
+    max-height: 25px;
+
+    &-row {
+      border: none;
+    }
+
+    &-cell {
+      padding: 0 0 8px;
+      height: fit-content;
+      text-align: left;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 400;
+      color: $color-grey--text;
+
+      &:first-child {
+        padding-left: 20px;
+      }
+
+      &:last-child {
+        padding-right: 20px;
+      }
+    }
+
+    &-cell:nth-child(2) {
+      .table__head-btn.sorted-up::after {
+        content: "А-Я";
+        display: block;
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: 600;
+        color: $color-firm;
+      }
+
+      .table__head-btn.sorted-down::after {
+        content: "Я-А";
+        display: block;
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: 600;
+        color: $color-firm;
+      }
+    }
+
+    &-btn {
+      font-size: 12px;
+      line-height: 16px;
+      color: $color-grey--text;
+
+      @include hover {
+        color: $color-black;
+      }
+
+      svg {
+        width: 8px;
+        height: 8px;
+      }
+
+      &.sorted-up {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      &.sorted-down {
+        svg {
+          transform: rotate(0);
+        }
+      }
+
+      &.is-sorted {
+        color: $color-firm;
+      }
+    }
+  }
+
+  &__body {
+    background-color: $color-white;
+
+    &-row {
+      @include hover {
+        .table__body-cell:first-child {
+          color: $color-black;
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-bg--light;
+      }
+
+      &-list {
+        display: grid;
+        grid-template-columns: repeat(5, 16px);
+        gap: 8px;
+        height: 100%;
+      }
+
+      &-list-item {
+        position: relative;
+
+        button.btn {
+          opacity: 0.7;
+          transition: opacity .15s ease-in-out;
+
+          @include hover {
+            opacity: 1;
+
+            & + .table__body-contact-tooltip {
+              z-index: 1;
+              opacity: 1;
+              pointer-events: auto;
+            }
+          }
+        }
+      }
+    }
+
+    &-cell {
+      padding: 20px 0;
+
+      &:first-child {
+        padding-left: 20px;
+        font-size: 12px;
+        line-height: 16px;
+        color: $color-grey--text;
+        transition: color .15s ease-in-out;
+      }
+
+      &:nth-child(5) {
+        padding: 10px 0;
+      }
+
+      &:last-child {
+        padding-right: 20px;
+      }
+
+      &-id {
+        cursor: pointer;
+      }
+
+      &-date {
+        span {
+          @include mr(8px);
+        }
+
+        span + span {
+          color: $color-grey--text;
+        }
+      }
+    }
+
+    &-contact-tooltip {
+      position: absolute;
+      top: -43px;
+      left: 0;
+      z-index: -1;
+      padding: 8px 14px;
+      color: $color-white;
+      font-size: 12px;
+      line-height: 16px;
+      white-space: nowrap;
+      background-color: $color-black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .15s ease-in-out;
+
+      &::after {
+        @include pseudo();
+        position: absolute;
+        bottom: -5px;
+        left: calc(50% - 5.88px);
+        width: 12px;
+        height: 12px;
+        background-color: $color-black;
+        transform:matrix(0.49,0.92,-0.49,0.92,0,0);
+      }
+
+      &-type {
+        font-weight: 400;
+        color: $color-white;
+      }
+
+      &-value {
+        font-weight: 700;
+        color: $color-firm;
+        text-decoration: underline;
+
+        &.contact-phone {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
